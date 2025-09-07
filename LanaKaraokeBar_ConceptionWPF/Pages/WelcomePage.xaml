@@ -1,0 +1,16 @@
+﻿<Page x:Class="LanaKaraokeBar_ConceptionWPF.Pages.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LanaKaraokeBar_ConceptionWPF.Pages"
+      mc:Ignorable="d"
+      Title="WelcomePage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Привет, Маша!" Foreground="#FFBFD3"/>
+            <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="Эта приложуха, которая демонстрирует идею, которая у меня родилась, приятного просмотра)))" Foreground="#FFBFD3"/>
+        </StackPanel>
+    </Grid>
+</Page>

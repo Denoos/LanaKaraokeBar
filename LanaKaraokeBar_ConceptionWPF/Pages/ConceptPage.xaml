@@ -1,0 +1,21 @@
+﻿<Page x:Class="LanaKaraokeBar_ConceptionWPF.Pages.ConceptPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LanaKaraokeBar_ConceptionWPF.Pages"
+      mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="Короче, меня посетила гениальная концепция: можно объединить Лана кб и твою систему касс!" Foreground="#FFBFD3"/>
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="Вот примерный план работы:" Foreground="#FFBFD3"/>
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="  1)чувак заходит на сайт (позже в тг-бота или тг мини-апп, там он бронирует себе комнатку чтобы поп*ть (и е и и :-) )" Foreground="#FFBFD3"/>
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="  2)чувак заходит в заведение, там его встречает наш 'официант', который отводит его в комнатку, при этом сам отмечает в твоей системе, что такой-то хер пришел опять тратить деньги" Foreground="#FFBFD3"/>
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="  3)далее там поют песенки, при этом чувак заказывает себе всякую фигню через официанта, например у него кнопка есть вызова персонала, к нему приходит официант с терминалом и чувак делает заказ" Foreground="#FFBFD3"/>
+                <TextBlock Margin="20" FontSize="20" TextAlignment="Center" TextWrapping="Wrap" Text="  4)когда осталось там минуты 2-3 до конца времени, приходит официант с терминалом для расчета, там как раз выбор тот, наличка или безнал, бонусы или акции и всякое такое. " Foreground="#FFBFD3"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
