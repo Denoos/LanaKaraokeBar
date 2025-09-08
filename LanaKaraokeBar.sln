@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_ConceptionWPF", "LanaKaraokeBar_ConceptionWPF\LanaKaraokeBar_ConceptionWPF.csproj", "{AF2AC6BC-6714-4D25-A895-3CE6897BE771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_DataBaseApi", "LanaKaraokeBar_DataBaseApi\LanaKaraokeBar_DataBaseApi.csproj", "{94B638C9-484E-4770-8211-C3DB3FCF0115}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AF2AC6BC-6714-4D25-A895-3CE6897BE771}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2AC6BC-6714-4D25-A895-3CE6897BE771}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF2AC6BC-6714-4D25-A895-3CE6897BE771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

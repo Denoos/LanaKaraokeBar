@@ -1,0 +1,6 @@
+@LanaKaraokeBar_DataBaseApi_HostAddress = http://localhost:5293
+
+GET {{LanaKaraokeBar_DataBaseApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
