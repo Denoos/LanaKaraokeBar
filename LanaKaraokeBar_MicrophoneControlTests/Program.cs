@@ -48,11 +48,11 @@ class SimpleAudioVisualizer
             capture.StartRecording();
             outputDevice.Play();
 
-            Console.WriteLine("Визуализатор запущен. Нажмите любую клавишу для выхода...");
             Console.ReadKey();
         }
         finally
         {
+            capture.DataAvailable -= Capture_DataAvailable;
             Stop();
         }
     }
@@ -93,7 +93,7 @@ class SimpleAudioVisualizer
             // Очищаем консоль
             Console.Clear();
 
-            // Вычисляем высоту полосы (от 0 до 20)
+            // Вычисляем высоту полосы (от 0 до 8)
             int height = (int)(volume * 20);
 
             // Рисуем вертикальную полосу
@@ -111,7 +111,7 @@ class SimpleAudioVisualizer
                     else
                         Console.ForegroundColor = ConsoleColor.Red;
 
-                    Console.Write("█");
+                    Console.Write("███");
                 }
                 else
                 {
