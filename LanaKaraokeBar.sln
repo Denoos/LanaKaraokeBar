@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_ConceptionWP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_DataBaseApi", "LanaKaraokeBar_DataBaseApi\LanaKaraokeBar_DataBaseApi.csproj", "{94B638C9-484E-4770-8211-C3DB3FCF0115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_MicrophoneControlTests", "LanaKaraokeBar_MicrophoneControlTests\LanaKaraokeBar_MicrophoneControlTests.csproj", "{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanaKaraokeBar_TvWpf", "LanaKaraokeBar_TvWpf\LanaKaraokeBar_TvWpf.csproj", "{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,18 +43,18 @@ Global
 		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Release|x64.Build.0 = Release|Any CPU
 		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Release|x86.ActiveCfg = Release|Any CPU
 		{94B638C9-484E-4770-8211-C3DB3FCF0115}.Release|x86.Build.0 = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|x64.Build.0 = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Debug|x86.Build.0 = Debug|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|x64.ActiveCfg = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|x64.Build.0 = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|x86.ActiveCfg = Release|Any CPU
-		{AA0CB4EA-5790-4FBA-AED6-7FE8A15F4E37}.Release|x86.Build.0 = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|x64.Build.0 = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Debug|x86.Build.0 = Debug|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|x64.ActiveCfg = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|x64.Build.0 = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EA8E3E3D-88FF-4D94-AD40-D666EFD2F07A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
