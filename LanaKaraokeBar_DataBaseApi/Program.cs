@@ -1,4 +1,7 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using LanaKaraokeBar_DataBaseApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,10 +14,10 @@ builder.Services.AddControllers()
             options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault;
         });
 
-//builder.Services.AddScoped<QwertyContext>();
+builder.Services.AddScoped<LanakaraokebarContext>();
 
 builder.Services.AddAuthorization();
-/*builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options => {
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -26,7 +29,7 @@ builder.Services.AddAuthorization();
             IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
             ValidateIssuerSigningKey = true,
         };
-    });*/
+    });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
