@@ -1,0 +1,19 @@
+﻿<Window x:Class="LanaKaraokeBar_TvVisualiserWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LanaKaraokeBar_TvVisualiserWPF"
+        mc:Ignorable="d">
+    <StackPanel Orientation="Horizontal" Background="#123456">
+        <StackPanel Orientation="Vertical">
+            <Button Content="Play" Margin="10, 30" Click="PlayButtonClicked"/>
+            <Button Content="Pause" Margin="10, 30" Click="PauseButtonClicked"/>
+            <Button Content="Rewind" Margin="10, 30" Click="RewindButtonClicked"/>
+            <Button Content="Stop" Margin= "10, 30" Click="StopButtonClicked"/>
+        </StackPanel>
+
+        <Image x:Name="VisImg" Width="600" Height="400"/>
+
+    </StackPanel>
+</Window>

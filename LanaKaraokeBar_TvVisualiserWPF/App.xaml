@@ -1,7 +1,7 @@
-﻿<Application x:Class="LanaKaraokeBar_TvWpf.App"
+﻿<Application x:Class="LanaKaraokeBar_TvVisualiserWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:LanaKaraokeBar_TvWpf"
+             xmlns:local="clr-namespace:LanaKaraokeBar_TvVisualiserWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

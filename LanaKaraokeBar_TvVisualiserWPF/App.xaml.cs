@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace LanaKaraokeBar_TvWpf
+namespace LanaKaraokeBar_TvVisualiserWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml
