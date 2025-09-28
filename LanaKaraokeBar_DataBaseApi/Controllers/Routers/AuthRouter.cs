@@ -8,6 +8,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         private ValidationHandler _validator;
         private DbRequstsHandler _requester;
+        private EncryptionHandler _encrypter;
 
         #endregion
 
@@ -16,6 +17,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
         public AuthRouter()
         {
             _validator = new();
+            _encrypter = new();
             _requester = DbRequstsHandler.Instance;
         }
 
@@ -31,11 +33,11 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
                 _validator.CheckAuthFormInput(login) &&
                 _validator.CheckAuthFormInput(password)
                 )
-                new Exception("Data has an incorrect format").ToString();
+                 return new Exception("Data has an incorrect format").ToString();
 
+            password = _encrypter.Encrypt(password);
 
-            // В разработке :-) //
-            return "";
+            return _requester.Authorize(login, password);
         }
 
         #endregion

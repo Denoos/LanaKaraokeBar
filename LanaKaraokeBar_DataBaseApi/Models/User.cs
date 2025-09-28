@@ -19,6 +19,8 @@ public partial class User
 
     public int BonusesCount { get; set; }
 
+    public string Password { get; set; } = null!;
+
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual Role IdRoleNavigation { get; set; } = null!;

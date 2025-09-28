@@ -5,13 +5,13 @@ using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace LanaKaraokeBar_DataBaseApi.Models;
 
-public partial class LanakaraokebarContext : DbContext
+public partial class LanaKaraokeBarContext : DbContext
 {
-    public LanakaraokebarContext()
+    public LanaKaraokeBarContext()
     {
     }
 
-    public LanakaraokebarContext(DbContextOptions<LanakaraokebarContext> options)
+    public LanaKaraokeBarContext(DbContextOptions<LanaKaraokeBarContext> options)
         : base(options)
     {
     }
@@ -50,7 +50,7 @@ public partial class LanakaraokebarContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=127.0.0.1;user=root;database=lanakaraokebar", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.15-mysql"));
+        => optionsBuilder.UseMySql("server=127.0.0.1;user=root;database=LanaKaraokeBar", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.15-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -404,6 +404,7 @@ public partial class LanakaraokebarContext : DbContext
                 .HasColumnType("tinyint(4)")
                 .HasColumnName("Is_Blocked");
             entity.Property(e => e.LastName).HasMaxLength(255);
+            entity.Property(e => e.Password).HasMaxLength(255);
             entity.Property(e => e.Patronymic).HasMaxLength(255);
 
             entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)

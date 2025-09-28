@@ -14,7 +14,7 @@ builder.Services.AddControllers()
             options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault;
         });
 
-builder.Services.AddScoped<LanakaraokebarContext>();
+builder.Services.AddScoped<LanaKaraokeBarContext>();
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
