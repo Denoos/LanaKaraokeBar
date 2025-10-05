@@ -53,6 +53,34 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Genres
+
+        public bool CheckGenreIsValid(Genre value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title))
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region Statuses
+
+        public bool CheckStatusIsValid(Status value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title))
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }

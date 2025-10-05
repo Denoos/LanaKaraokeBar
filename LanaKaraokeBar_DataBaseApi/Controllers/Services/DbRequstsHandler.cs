@@ -165,6 +165,75 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Genres
+
+        public List<Genre> GetAllGenres()
+        {
+            RefreshContext();
+            List<Genre> result = [.. _context.Genres];
+
+            return result;
+        }
+
+        public bool AddGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Genres.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Genres.Update(_context.Genres.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Genres.Remove(_context.Genres.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }
