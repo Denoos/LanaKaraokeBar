@@ -1,4 +1,7 @@
-﻿namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
+﻿using LanaKaraokeBar_DataBaseApi.Models;
+using Microsoft.AspNetCore.Identity.Data;
+
+namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 {
     public class ValidationHandler
     {
@@ -6,30 +9,44 @@
 
         #region Strings
 
-        public bool CheckString(string value)
+        public bool CheckStringIsValid(string value)
+        {
+            var result = false;
+
+            if (
+                !string.IsNullOrEmpty(value) &&
+                !string.IsNullOrWhiteSpace(value)
+                )
+                result = true;
+
+            return result;
+        }
+
+        public bool CheckAuthFormInputIsValid(string value)
         {
             var result = true;
 
             if (
-                string.IsNullOrEmpty(value) ||
-                string.IsNullOrWhiteSpace(value)
+                CheckStringIsValid(value) &&
+                value.Length >= 4 &&
+                !value.Contains('\"') &&
+                !value.Contains('\'')
                 )
                 result = false;
 
             return result;
         }
 
-        public bool CheckAuthFormInput(string value)
-        {
-            var result = true;
+        #endregion
 
-            if (
-                value.Length < 4 ||
-                value.Contains('"') ||
-                value.Contains('\'') ||
-                value.Contains(' ')
-                )
-                result = false;
+        #region Authors
+
+        public bool CheckAuthorIsValid(Author value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.NickName))
+                result = true;
 
             return result;
         }

@@ -1,4 +1,5 @@
 ﻿using LanaKaraokeBar_DataBaseApi.Models;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -36,11 +37,13 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
         private void Save()
         {
             _context.SaveChangesAsync();
+            Thread.Sleep(800);
         }
 
         private void RefreshContext()
         {
             _context = new();
+            Thread.Sleep(800);
         }
 
         #endregion
@@ -89,6 +92,75 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
                 Console.Beep(100, 300);
             }
             return token;
+        }
+
+        #endregion
+
+        #region Authors
+
+        public List<Author> GetAllAuthors()
+        {
+            RefreshContext();
+            List<Author>  result = [.. _context.Authors];
+
+            return result;
+        }
+
+        public bool AddAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v=> v.NickName == value.NickName) != null)
+                return result;
+
+            _context.Authors.Add(value);
+            Save();
+
+            RefreshContext();
+            if(_context.Authors.FirstOrDefault(v=> v.NickName == value.NickName) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) != null)
+                return result;
+
+            _context.Authors.Update(_context.Authors.FirstOrDefault(v => v.NickName == value.NickName));
+            Save();
+
+            RefreshContext();
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) != null)
+                result = true;
+
+            return result;
+        }
+        
+        public bool DeleteAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) == null)
+                return result;
+
+            _context.Authors.Remove(_context.Authors.FirstOrDefault(v => v.NickName == value.NickName));
+            Save();
+
+            RefreshContext();
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) == null)
+                result = true;
+
+            return result;
         }
 
         #endregion

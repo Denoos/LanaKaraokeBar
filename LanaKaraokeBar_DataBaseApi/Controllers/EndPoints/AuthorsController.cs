@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LanaKaraokeBar_DataBaseApi.Controllers.Routers;
+using LanaKaraokeBar_DataBaseApi.Models;
+using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
 {
@@ -6,10 +9,30 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
+        AuthorRouter _router = new();
+
+        [HttpGet("GetAllAuthors")]
+        public List<Author> GetAuthors()
         {
-            return new string[] { "value1", "value2" };
+            return _router.ComposeGetAuthorRoute();
+        }
+
+        [HttpPost("AddAuthor")]
+        public bool PostAuthor(Author value)
+        {
+            return _router.ComposePostAuthorRoute(value);
+        }
+
+        [HttpPut("EditAuthor")]
+        public bool PutAuthor(Author value)
+        {
+            return _router.ComposePutAuthorRoute(value);
+        }
+
+        [HttpDelete("DeleteAuthor")]
+        public bool DeleteAuthor(Author value)
+        {
+            return _router.ComposeDeleteAuthorRoute(value);
         }
     }
 }
