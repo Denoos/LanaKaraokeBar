@@ -1,4 +1,5 @@
 ﻿using LanaKaraokeBar_DataBaseApi.Models;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -36,11 +37,13 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
         private void Save()
         {
             _context.SaveChangesAsync();
+            Thread.Sleep(800);
         }
 
         private void RefreshContext()
         {
             _context = new();
+            Thread.Sleep(800);
         }
 
         #endregion
@@ -89,6 +92,213 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
                 Console.Beep(100, 300);
             }
             return token;
+        }
+
+        #endregion
+
+        #region Authors
+
+        public List<Author> GetAllAuthors()
+        {
+            RefreshContext();
+            List<Author>  result = [.. _context.Authors];
+
+            return result;
+        }
+
+        public bool AddAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v=> v.NickName == value.NickName) != null)
+                return result;
+
+            _context.Authors.Add(value);
+            Save();
+
+            RefreshContext();
+            if(_context.Authors.FirstOrDefault(v=> v.NickName == value.NickName) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) != null)
+                return result;
+
+            _context.Authors.Update(_context.Authors.FirstOrDefault(v => v.NickName == value.NickName));
+            Save();
+
+            RefreshContext();
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) != null)
+                result = true;
+
+            return result;
+        }
+        
+        public bool DeleteAuthor(Author value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) == null)
+                return result;
+
+            _context.Authors.Remove(_context.Authors.FirstOrDefault(v => v.NickName == value.NickName));
+            Save();
+
+            RefreshContext();
+            if (_context.Authors.FirstOrDefault(v => v.NickName == value.NickName) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region Genres
+
+        public List<Genre> GetAllGenres()
+        {
+            RefreshContext();
+            List<Genre> result = [.. _context.Genres];
+
+            return result;
+        }
+
+        public bool AddGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Genres.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Genres.Update(_context.Genres.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteGenre(Genre value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Genres.Remove(_context.Genres.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Genres.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region Statuses
+
+        public List<Status> GetAllStatuses()
+        {
+            RefreshContext();
+            List<Status> result = [.. _context.Statuses];
+
+            return result;
+        }
+
+        public bool AddStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Statuses.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Statuses.Update(_context.Statuses.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Statuses.Remove(_context.Statuses.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
         }
 
         #endregion

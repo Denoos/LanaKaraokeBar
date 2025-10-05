@@ -28,10 +28,10 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
         public string ComposeAuthRoute(string login, string password)
         {
             if (!
-                _validator.CheckString(login) &&
-                _validator.CheckString(password) &&
-                _validator.CheckAuthFormInput(login) &&
-                _validator.CheckAuthFormInput(password)
+                _validator.CheckStringIsValid(login) &&
+                _validator.CheckStringIsValid(password) &&
+                _validator.CheckAuthFormInputIsValid(login) &&
+                _validator.CheckAuthFormInputIsValid(password)
                 )
                  return new Exception("Data has an incorrect format").ToString();
 
