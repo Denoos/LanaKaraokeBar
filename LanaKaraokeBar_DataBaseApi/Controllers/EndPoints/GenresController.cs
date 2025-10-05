@@ -18,19 +18,19 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
         }
 
         [HttpPost("AddGenre")]
-        public bool PostAuthor(Genre value)
+        public bool PostGenre(Genre value)
         {
             return _router.ComposePostGenreRoute(value);
         }
 
         [HttpPut("EditGenre")]
-        public bool PutAuthor(Genre value)
+        public bool PutGenre(Genre value)
         {
             return _router.ComposePutGenreRoute(value);
         }
 
         [HttpDelete("DeleteGenre")]
-        public bool DeleteAuthor(Genre value)
+        public bool DeleteGenre(Genre value)
         {
             return _router.ComposeDeleteGenreRoute(value);
         }

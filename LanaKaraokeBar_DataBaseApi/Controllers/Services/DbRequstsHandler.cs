@@ -234,6 +234,75 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Statuses
+
+        public List<Status> GetAllStatuses()
+        {
+            RefreshContext();
+            List<Status> result = [.. _context.Statuses];
+
+            return result;
+        }
+
+        public bool AddStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Statuses.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Statuses.Update(_context.Statuses.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteStatus(Status value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Statuses.Remove(_context.Statuses.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Statuses.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }
