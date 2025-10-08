@@ -510,6 +510,75 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Rate
+
+        public List<Rate> GetAllRates()
+        {
+            RefreshContext();
+            List<Rate> result = [.. _context.Rates];
+
+            return result;
+        }
+
+        public bool AddRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Rates.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Rates.Update(_context.Rates.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Rates.Remove(_context.Rates.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }

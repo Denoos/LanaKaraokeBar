@@ -123,6 +123,20 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Rate
+
+        public bool CheckRateIsValid(Rate value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title) && value.CostCoefficient > 0)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }
