@@ -13,7 +13,7 @@ public partial class User
 
     public string? Patronymic { get; set; }
 
-    public sbyte IsBlocked { get; set; }
+    public bool IsBlocked { get; set; }
 
     public int IdRole { get; set; }
 
