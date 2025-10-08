@@ -81,6 +81,20 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Products
+
+        public bool CheckProductIsValid(Product value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title) && value.Cost > 0)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }

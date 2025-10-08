@@ -26,12 +26,12 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Methods
 
-        public List<Genre> ComposeGetGenreRoute()
+        public List<Genre> ComposeGetRoute()
         {
             return _requester.GetAllGenres();
         }
 
-        public bool ComposePostGenreRoute(Genre value)
+        public bool ComposePostRoute(Genre value)
         {
             if (_validator.CheckGenreIsValid(value))
                 return _requester.AddGenre(value);
@@ -39,7 +39,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
             return _invalidValueFlag;
         }
 
-        public bool ComposePutGenreRoute(Genre value)
+        public bool ComposePutRoute(Genre value)
         {
             if (_validator.CheckGenreIsValid(value))
                 return _requester.EditGenre(value);
@@ -47,7 +47,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
             return _invalidValueFlag;
         }
 
-        public bool ComposeDeleteGenreRoute(Genre value)
+        public bool ComposeDeleteRoute(Genre value)
         {
             if (_validator.CheckGenreIsValid(value))
                 return _requester.DeleteGenre(value);

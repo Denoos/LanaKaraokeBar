@@ -3,8 +3,9 @@ using LanaKaraokeBar_DataBaseApi.Models;
 
 namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 {
-    public class StatusRouter
+    public class ProductRouter
     {
+
         #region Fields
 
         private DbRequstsHandler _requester;
@@ -15,7 +16,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Constructor
 
-        public StatusRouter()
+        public ProductRouter()
         {
             _validator = new();
             _requester = DbRequstsHandler.Instance;
@@ -26,31 +27,31 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Methods
 
-        public List<Status> ComposeGetRoute()
+        public List<Product> ComposeGetRoute()
         {
-            return _requester.GetAllStatuses();
+            return _requester.GetAllProducts();
         }
 
-        public bool ComposePostRoute(Status value)
+        public bool ComposePostRoute(Product value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.AddStatus(value);
+            if (_validator.CheckProductIsValid(value))
+                return _requester.AddProduct(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposePutRoute(Status value)
+        public bool ComposePutRoute(Product value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.EditStatus(value);
+            if (_validator.CheckProductIsValid(value))
+                return _requester.EditProduct(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposeDeleteRoute(Status value)
+        public bool ComposeDeleteRoute(Product value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.DeleteStatus(value);
+            if (_validator.CheckProductIsValid(value))
+                return _requester.DeleteProduct(value);
 
             return _invalidValueFlag;
         }

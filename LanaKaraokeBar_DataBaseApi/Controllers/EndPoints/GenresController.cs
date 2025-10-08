@@ -14,25 +14,25 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
         [HttpGet("GetAllGenres")]
         public List<Genre> GetGenres()
         {
-            return _router.ComposeGetGenreRoute();
+            return _router.ComposeGetRoute();
         }
 
         [HttpPost("AddGenre")]
         public bool PostGenre(Genre value)
         {
-            return _router.ComposePostGenreRoute(value);
+            return _router.ComposePostRoute(value);
         }
 
         [HttpPut("EditGenre")]
         public bool PutGenre(Genre value)
         {
-            return _router.ComposePutGenreRoute(value);
+            return _router.ComposePutRoute(value);
         }
 
         [HttpDelete("DeleteGenre")]
         public bool DeleteGenre(Genre value)
         {
-            return _router.ComposeDeleteGenreRoute(value);
+            return _router.ComposeDeleteRoute(value);
         }
     }
 }

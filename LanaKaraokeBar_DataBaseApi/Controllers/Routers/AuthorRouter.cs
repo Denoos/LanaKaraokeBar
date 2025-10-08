@@ -26,12 +26,12 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Methods
 
-        public List<Author> ComposeGetAuthorRoute()
+        public List<Author> ComposeGetRoute()
         {
             return _requester.GetAllAuthors();
         }
 
-        public bool ComposePostAuthorRoute(Author value)
+        public bool ComposePostRoute(Author value)
         {
             if (_validator.CheckAuthorIsValid(value))
                 return _requester.AddAuthor(value);
@@ -39,7 +39,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
             return _invalidValueFlag;
         }
 
-        public bool ComposePutAuthorRoute(Author value)
+        public bool ComposePutRoute(Author value)
         {
             if (_validator.CheckAuthorIsValid(value))
                 return _requester.EditAuthor(value);
@@ -47,7 +47,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
             return _invalidValueFlag;
         }
 
-        public bool ComposeDeleteAuthorRoute(Author value)
+        public bool ComposeDeleteRoute(Author value)
         {
             if (_validator.CheckAuthorIsValid(value))
                 return _requester.DeleteAuthor(value);

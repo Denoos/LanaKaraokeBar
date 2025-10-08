@@ -303,6 +303,75 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Products
+
+        public List<Product> GetAllProducts()
+        {
+            RefreshContext();
+            List<Product> result = [.. _context.Products];
+
+            return result;
+        }
+
+        public bool AddProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Products.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Products.Update(_context.Products.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Products.Remove(_context.Products.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }

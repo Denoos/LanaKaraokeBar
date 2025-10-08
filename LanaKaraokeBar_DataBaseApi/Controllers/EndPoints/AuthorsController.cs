@@ -14,25 +14,25 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
         [HttpGet("GetAllAuthors")]
         public List<Author> GetAuthors()
         {
-            return _router.ComposeGetAuthorRoute();
+            return _router.ComposeGetRoute();
         }
 
         [HttpPost("AddAuthor")]
         public bool PostAuthor(Author value)
         {
-            return _router.ComposePostAuthorRoute(value);
+            return _router.ComposePostRoute(value);
         }
 
         [HttpPut("EditAuthor")]
         public bool PutAuthor(Author value)
         {
-            return _router.ComposePutAuthorRoute(value);
+            return _router.ComposePutRoute(value);
         }
 
         [HttpDelete("DeleteAuthor")]
         public bool DeleteAuthor(Author value)
         {
-            return _router.ComposeDeleteAuthorRoute(value);
+            return _router.ComposeDeleteRoute(value);
         }
     }
 }
