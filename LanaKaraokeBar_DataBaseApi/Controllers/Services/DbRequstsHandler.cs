@@ -68,7 +68,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
                          s.LastName == preparedLogin[1] &&
                          s.Patronymic == preparedLogin[2]);
 
-                if (user == null)
+                if (user == null || user.IsBlocked == true)
                     return token;
 
                 var claims = new List<Claim>
@@ -503,6 +503,184 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
             RefreshContext();
             if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region Rate
+
+        public List<Rate> GetAllRates()
+        {
+            RefreshContext();
+            List<Rate> result = [.. _context.Rates];
+
+            return result;
+        }
+
+        public bool AddRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Rates.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Rates.Update(_context.Rates.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteRate(Rate value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Rates.Remove(_context.Rates.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Rates.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region User
+
+        public List<User> GetAllUsers()
+        {
+            RefreshContext();
+            List<User> result = [.. _context.Users];
+
+            return result;
+        }
+
+        public bool AddUser(User value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                return result;
+
+            _context.Users.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditUser(User value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                return result;
+
+            _context.Users.Update(_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName));
+            Save();
+
+            RefreshContext();
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteUser(User value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) == null)
+                return result;
+
+            _context.Users.Remove(_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName));
+            Save();
+
+            RefreshContext();
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) == null)
+                result = true;
+
+            return result;
+        }
+
+        public bool BlockUser(User value)
+        {
+            var result = false;
+            value.IsBlocked = true;
+
+            RefreshContext();
+
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                return result;
+
+            _context.Users.Update(_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName));
+            Save();
+
+            RefreshContext();
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName && v.IsBlocked == true) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool UnBlockUser(User value)
+        {
+            var result = false;
+            value.IsBlocked = false;
+
+            RefreshContext();
+
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName) != null)
+                return result;
+
+            _context.Users.Update(_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName));
+            Save();
+
+            RefreshContext();
+            if (_context.Users.FirstOrDefault(v => v.FirstName == value.FirstName && v.LastName == value.LastName && v.IsBlocked == false) != null)
                 result = true;
 
             return result;
