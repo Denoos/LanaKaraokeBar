@@ -3,7 +3,7 @@ using LanaKaraokeBar_DataBaseApi.Models;
 
 namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 {
-    public class StatusRouter
+    public class PaymentTypeRouter
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Constructor
 
-        public StatusRouter()
+        public PaymentTypeRouter()
         {
             _validator = new();
             _requester = DbRequstsHandler.Instance;
@@ -26,31 +26,31 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Methods
 
-        public List<Status> ComposeGetRoute()
+        public List<Paymenttype> ComposeGetRoute()
         {
-            return _requester.GetAllStatuses();
+            return _requester.GetAllPaymentTypes();
         }
 
-        public bool ComposePostRoute(Status value)
+        public bool ComposePostRoute(Paymenttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.AddStatus(value);
+            if (_validator.CheckPaymentTypeIsValid(value))
+                return _requester.AddPaymentType(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposePutRoute(Status value)
+        public bool ComposePutRoute(Paymenttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.EditStatus(value);
+            if (_validator.CheckPaymentTypeIsValid(value))
+                return _requester.EditPaymentType(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposeDeleteRoute(Status value)
+        public bool ComposeDeleteRoute(Paymenttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.DeleteStatus(value);
+            if (_validator.CheckPaymentTypeIsValid(value))
+                return _requester.DeletePaymentType(value);
 
             return _invalidValueFlag;
         }

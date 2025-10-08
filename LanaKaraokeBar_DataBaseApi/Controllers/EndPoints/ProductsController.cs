@@ -7,30 +7,30 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.EndPoints
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StatusesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        StatusRouter _router = new();
+        ProductRouter _router = new();
 
-        [HttpGet("GetAllStatuses")]
-        public List<Status> GetStatuses()
+        [HttpGet("GetAllProducts")]
+        public List<Product> GetProducts()
         {
             return _router.ComposeGetRoute();
         }
 
-        [HttpPost("AddStatus")]
-        public bool PostStatus(Status value)
+        [HttpPost("AddProduct")]
+        public bool PostProduct(Product value)
         {
             return _router.ComposePostRoute(value);
         }
 
-        [HttpPut("EditStatus")]
-        public bool PutStatus(Status value)
+        [HttpPut("EditProduct")]
+        public bool PutProduct(Product value)
         {
             return _router.ComposePutRoute(value);
         }
 
-        [HttpDelete("DeleteStatus")]
-        public bool DeleteStatus(Status value)
+        [HttpDelete("DeleteProduct")]
+        public bool DeleteProduct(Product value)
         {
             return _router.ComposeDeleteRoute(value);
         }

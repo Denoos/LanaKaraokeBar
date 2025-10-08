@@ -303,6 +303,213 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region Products
+
+        public List<Product> GetAllProducts()
+        {
+            RefreshContext();
+            List<Product> result = [.. _context.Products];
+
+            return result;
+        }
+
+        public bool AddProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Products.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Products.Update(_context.Products.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteProduct(Product value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Products.Remove(_context.Products.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Products.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region PaymentType
+
+        public List<Paymenttype> GetAllPaymentTypes()
+        {
+            RefreshContext();
+            List<Paymenttype> result = [.. _context.Paymenttypes];
+
+            return result;
+        }
+
+        public bool AddPaymentType(Paymenttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Paymenttypes.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditPaymentType(Paymenttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Paymenttypes.Update(_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeletePaymentType(Paymenttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Paymenttypes.Remove(_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Paymenttypes.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region ReportType
+
+        public List<Reporttype> GetAllReportTypes()
+        {
+            RefreshContext();
+            List<Reporttype> result = [.. _context.Reporttypes];
+
+            return result;
+        }
+
+        public bool AddReportType(Reporttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Reporttypes.Add(value);
+            Save();
+
+            RefreshContext();
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool EditReportType(Reporttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                return result;
+
+            _context.Reporttypes.Update(_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) != null)
+                result = true;
+
+            return result;
+        }
+
+        public bool DeleteReportType(Reporttype value)
+        {
+            var result = false;
+
+            RefreshContext();
+
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) == null)
+                return result;
+
+            _context.Reporttypes.Remove(_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title));
+            Save();
+
+            RefreshContext();
+            if (_context.Reporttypes.FirstOrDefault(v => v.Title == value.Title) == null)
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }

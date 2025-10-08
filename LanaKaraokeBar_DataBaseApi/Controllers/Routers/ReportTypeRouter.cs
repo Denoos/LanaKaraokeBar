@@ -3,7 +3,7 @@ using LanaKaraokeBar_DataBaseApi.Models;
 
 namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 {
-    public class StatusRouter
+    public class ReportTypeRouter
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Constructor
 
-        public StatusRouter()
+        public ReportTypeRouter()
         {
             _validator = new();
             _requester = DbRequstsHandler.Instance;
@@ -26,31 +26,31 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Routers
 
         #region Methods
 
-        public List<Status> ComposeGetRoute()
+        public List<Reporttype> ComposeGetRoute()
         {
-            return _requester.GetAllStatuses();
+            return _requester.GetAllReportTypes();
         }
 
-        public bool ComposePostRoute(Status value)
+        public bool ComposePostRoute(Reporttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.AddStatus(value);
+            if (_validator.CheckReportTypeIsValid(value))
+                return _requester.AddReportType(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposePutRoute(Status value)
+        public bool ComposePutRoute(Reporttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.EditStatus(value);
+            if (_validator.CheckReportTypeIsValid(value))
+                return _requester.EditReportType(value);
 
             return _invalidValueFlag;
         }
 
-        public bool ComposeDeleteRoute(Status value)
+        public bool ComposeDeleteRoute(Reporttype value)
         {
-            if (_validator.CheckStatusIsValid(value))
-                return _requester.DeleteStatus(value);
+            if (_validator.CheckReportTypeIsValid(value))
+                return _requester.DeleteReportType(value);
 
             return _invalidValueFlag;
         }
