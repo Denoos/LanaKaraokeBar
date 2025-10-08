@@ -95,6 +95,34 @@ namespace LanaKaraokeBar_DataBaseApi.Controllers.Services
 
         #endregion
 
+        #region PaymentType
+
+        public bool CheckPaymentTypeIsValid(Paymenttype value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title))
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
+        #region ReportType
+
+        public bool CheckReportTypeIsValid(Reporttype value)
+        {
+            var result = false;
+
+            if (value != null && CheckStringIsValid(value.Title))
+                result = true;
+
+            return result;
+        }
+
+        #endregion
+
         #endregion
     }
 }
